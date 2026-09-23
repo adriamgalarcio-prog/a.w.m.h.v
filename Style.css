@@ -1,0 +1,157 @@
+* {
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: serif;
+    list-style: none;
+   
+}
+
+
+header{
+    background: url(Img/barra.png) center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 10%;
+
+}
+
+.Logo{
+    height: 50px;
+    width: 50px;
+    display: block;
+    border-radius: 58px;
+    
+}
+
+.nav-links{
+    display: flex;
+    align-items: center;
+    list-style: none;
+    gap: 30px;
+    font-size: 18px;
+}
+
+.nav-links a{
+    text-decoration: none;
+    color: white;
+    position: relative;
+    font-family: serif;
+    
+}
+
+.nav-links a::after{
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    background: rgb(98, 6, 119);
+    left: 0;
+    bottom: -5px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover::after{
+    width: 100%;
+}
+
+.registrar{
+    background-color: rgb(17, 75, 141);
+    border-radius: 30px;
+    padding: 10px 22px;
+    color: white;
+    text-decoration: none;
+    font-family: serif;
+}
+
+
+
+.Contenedor{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Principal{
+    height: 500px;
+    width: 950px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5%;
+    background:  url(Img/fondo-de-calidad.png) center/cover no-repeat;
+}
+
+img{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+
+
+.container{
+    max-width: 1200px;
+    margin: 0 auto;
+
+}
+
+.footer{
+    background-color: black;
+    padding: 80px 0;
+}
+
+.footer-row{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.footerLinks{
+    width: 25%;
+    padding: 0 15;
+    border-bottom: none;
+}
+
+.footerLinks h4{
+    color: white;
+    font-size: 20px;
+    margin-bottom: 10px;
+    font-weight: 500;
+    
+    
+}
+
+.footerLinks a{
+    color: white;
+}
+
+.footerLinks ul li a{
+    font-size: 15px;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 10px;
+    transition: all, 50ms ease;
+}
+
+.footerLinks ul li a:hover{
+    color: rgb(98, 6, 119);
+    padding-left: 6px;
+}
+
+.slider-box{
+    width: 1280;
+    height: auto;
+    margin: 50px auto 0;
+}
+
+.slider-box ul{
+    display: flex;
+    padding: 0;
+    width: 400%;
+}
+
+.slider-box img{
+    width: 100%;
+}
