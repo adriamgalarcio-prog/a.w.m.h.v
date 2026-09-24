@@ -5,3 +5,99 @@
     font-family: serif;
     list-style: none;
 }
+
+body{
+    background-color: rgb(224, 221, 221);
+}
+
+img{
+    margin: 5px;
+    height: 70px;
+    width: 70px;
+    border-radius: 58px;
+}
+.contenedor{
+    width: 90%;
+    max-width: 450px;
+    padding: 30px 40px;
+    border-radius: 10px;
+    color: black;
+    border: 2px solid rgb(61, 59, 59);
+}
+
+.contenedor h1{
+    text-align: center;
+    margin-bottom: 35px;
+    font-family: "Times New Roman", serif;
+    font-size: 32px;
+}
+
+.Description{
+    margin-bottom: 25px;
+    text-align: center;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+form a{
+    color: black;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.input-blox{
+    border: 2px solid rgba(0, 0, 0, 0.637);
+    display: flex;
+    align-items: center;
+    height: 30px;
+    border-radius: 40px;
+    padding: 20px;
+}
+
+.input-blox input{
+    background-color: transparent;
+    border: 0;
+    outline: 0;
+    font-size: 15px;
+    min-width: 0;
+}
+
+.recordar-password {
+    font-size: 14.5px;
+}
+
+form a:hover{
+    text-decoration: underline;
+}
+
+.btn{
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    border: 0;
+    outline: 0;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 10px;
+    cursor: pointer;
+    height: 40px;
+    width: 200px;
+}
+
+.register-link{
+    text-align: center;
+    font-size: 14.5px;
+    margin-bottom: 25px;
+}
+
+.register-link a{
+    margin-left: 8px;
+}
+
+.continuar{
+    margin-bottom: -25px;
+    text-align: center;
+}
