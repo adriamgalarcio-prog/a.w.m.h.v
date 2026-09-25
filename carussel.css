@@ -1,0 +1,80 @@
+* {
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: serif;
+    list-style: none;
+}
+
+.carussel-container{
+    position: relative;
+    max-width: 1000px;
+    margin: 20px auto;
+    overflow: hidden;
+}
+
+.carussel{
+    display: flex;
+    transition: transform .5s ease-in-out;
+}
+
+.carussel-item{
+    min-width: 100%;
+    position: relative;
+}
+
+.carussel-item img{
+    border-radius: 0;
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+    display: block;
+}
+
+.carousel-button{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    color: white;
+    padding: 16px;
+    border: 0;
+    cursor: pointer;
+    font-size: 18px;
+    transition: background .3s;
+    z-index: 10;
+}
+
+.carousel-button:hover{
+    background: rgba(128, 0, 128, 1);
+}
+
+.carousel-button-prev{
+    left: 10px;
+}
+
+.carousel-button-next{
+    right: 10px;
+}
+
+.content-indicators{
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50px);
+    display: flex;
+    gap: 10px;
+}
+
+.indicator{
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: rgba(255,255,255,0.5);
+    cursor: pointer;
+    transition: background .3s;
+}
+
+.indicator:active{
+    background-color: purple;
+}

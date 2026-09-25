@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tu tienda Favorita</title>
     <link rel="stylesheet" href="Style.css">
+    <link rel="stylesheet" href="carussel.css">
     
 </head>
 <body>
@@ -30,40 +31,38 @@
                 </div>
             </div>
         </div>
-
-    </div>
-<div>
-    <div class="slider-box">
-        <ul>
-            <li>
-                <img src="Img/Promo1.png" alt="Promocion">
-            </li>
-        </ul>
     </div>
 
-    <div class="slider-box">
-        <ul>
-            <li>
-                <img src="Img/Promo2.png" alt="Promocion">
-            </li>
-        </ul>
+<div class="carussel-container">
+    <div class="carussel" id="carussel">
+        <div class="carussel-item">
+            <img src="Img carussel/descuento 1.png" alt="imagen carrusel">
+        </div>
+        <div class="carussel-item">
+            <img src="Img carussel/descuento 2.png" alt="imagen carrusel">
+        </div>
+        <div class="carussel-item">
+            <img src="Img carussel/descuento 3.png" alt="imagen carrusel">
+        </div>
+        <div class="carussel-item">
+            <img src="Img carussel/descuento 4.png" alt="imagen carrusel">
+        </div>
+        <div class="carussel-item">
+            <img src="Img carussel/descuento 5.png" alt="imagen carrusel">
+        </div>
+        <div class="carussel-item">
+            <img src="Img carussel/descuento 6.png" alt="imagen carrusel">
+        </div>
+        <div class="carussel-item">
+            <img src="Img carussel/descuento 7.png" alt="imagen carrusel">
+        </div>
     </div>
 
-    <div class="slider-box">
-        <ul>
-            <li>
-                <img src="Img/Promo3.png" alt="Promocion">
-            </li>
-        </ul>
-    </div>
+    <button class="carousel-button carousel-button-prev" id="prevBtn"><</button>
+    <button class="carousel-button carousel-button-next" id="nextBtn">></button>
 
-    <div class="slider-box">
-        <ul>
-            <li>
-                <img src="Img/Promo4.png" alt="Promocion">
-            </li>
-        </ul>
-    </div>
+    <div class="content-indicators" id="indicators"></div>
+    <script src="Descuentos.js"></script>
 </div>
     <footer class="footer">
         <div class="container">

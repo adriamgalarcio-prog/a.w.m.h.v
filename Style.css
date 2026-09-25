@@ -137,18 +137,3 @@ img{
     padding-left: 6px;
 }
 
-.slider-box{
-    width: 1280;
-    height: auto;
-    margin: 50px auto 0;
-}
-
-.slider-box ul{
-    display: flex;
-    padding: 0;
-    width: 400%;
-}
-
-.slider-box img{
-    width: 100%;
-}
