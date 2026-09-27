@@ -6,7 +6,7 @@
     <title>Tu tienda Favorita</title>
     <link rel="stylesheet" href="Style.css">
     <link rel="stylesheet" href="carussel.css">
-    
+    <link rel="stylesheet" href="Cards.css">
 </head>
 <body>
     <header>
@@ -14,8 +14,8 @@
         <nav>
             <ul class="nav-links">
                 <li><a href="#">Inicio</a></li>
-                <li><a href="#">Shop</a></li>
-                <li><a href="#">Ayuda</a></li>
+                <li><a href="#shop">Shop</a></li>
+                <li><a href="#">Marcas</a></li>
                 <li><a href="#">Contacto</a></li>
             </ul>
         </nav>
@@ -64,6 +64,141 @@
     <div class="content-indicators" id="indicators"></div>
     <script src="Descuentos.js"></script>
 </div>
+
+<h1>Nuestra Colección</h1>
+
+<div class="cards-container">
+    <div class="card" id="shop">
+        <figure>
+            <img src="Img/Real-Madrid.png" alt="Card 1">
+        </figure>
+        <div class="contenido">
+            <h3>Camisa deportiva</h3>
+            <p>Descubre toda la informacion sobre nuestras camisas deportivas</p>
+            <div class="boton-modal">
+                <label for="btn-modal">Ver más</label>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <figure>
+            <img src="Img/AWMHV.png" alt="Card 1">
+        </figure>
+        <div class="contenido">
+            <h3>Nuestra camisa</h3>
+            <p>Descubre toda la informacion sobre nuestra propia camisa deportiva</p>
+            <div class="boton-modal">
+                <label for="btn-modal2">Ver más</label>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <figure>
+            <img src="Img/Barca.png" alt="Card 1">
+        </figure>
+        <div class="contenido">
+            <h3>Pantalonetas deportivas</h3>
+            <p>Descubre toda la informacion sobre nuestras pantalonetas deportivas</p>
+            <div class="boton-modal">
+                <label for="btn-modal3">Ver más</label>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="card-container">
+    <div class="card">
+        <figure>
+            <img src="Img/Guayos.png" alt="Card 1">
+        </figure>
+        <div class="contenido">
+            <h3>Guayos</h3>
+            <p>Descubre toda la informacion sobre nuestros guayos deportivos</p>
+            <div class="boton-modal">
+                <label for="btn-modal4">Ver más</label>
+            </div>
+        </div>
+    </div>
+    <div class="card">
+        <figure>
+            <img src="Img/Guantes.png" alt="Card 1">
+        </figure>
+        <div class="contenido">
+            <h3>Guantes deportivos</h3>
+            <p>Descubre toda la informacion sobre nuestros guantes deportivos</p>
+            <div class="boton-modal">
+                <label for="btn-modal5">Ver más</label>
+            </div>
+        </div>
+    </div>
+</div>
+
+<input type="checkbox" id="btn-modal">
+<div class="contaainer-modal">
+    <div class="content-modal">
+        <h2>Camisa deportiva</h2>
+        <p>Bienvenido a nuestras camisas deportivas aqui podras ver todas las opciones disponibles 
+            para que elijas la que mas te guste y se adapte a tus necesidades.Tenemos camisas de diferentes equipos y marcas reconocidas, 
+            todas ellas fabricadas con materiales de alta calidad para garantizar comodidad y durabilidad.
+        </p>
+        <div class="btn-cerrar">
+            <label for="btn-modal">Cerrar</label>
+        </div>
+    </div>
+</div>
+<input type="checkbox" id="btn-modal2">
+<div class="contaainer-modal2">
+    <div class="content-modal2">
+        <h2>Nuestra camisa</h2>
+        <p>Bienvenido a nuestra propia camisa deportiva en colaboracion con adidas con materiales de alta calidad 
+            para garantizar comodidad y durabilidad con esta camisa prodras ir a tus entrenamientos sin procuparte
+            del sudor y la incomodidad que esto puede generar, ademas de que es una camisa con un diseño unico 
+            y exclusivo para nuestros clientes.
+        </p>
+        <div class="btn-cerrar2">
+            <label for="btn-modal2">Cerrar</label>
+        </div>
+    </div>
+</div>
+<input type="checkbox" id="btn-modal3">
+<div class="contaainer-modal3">
+    <div class="content-modal3">
+        <h2>Pantalonetas deportivas</h2>
+        <p>Bienvenido a nuestras pantalonetas deportivas aqui podras ver todas las opciones disponibles 
+            para que elijas la que mas te guste y se adapte a tus necesidades.Tenemos pantalonetas de diferentes equipos y marcas reconocidas, 
+            todas ellas fabricadas con materiales de alta calidad para garantizar comodidad y durabilidad.
+        </p>
+        <div class="btn-cerrar3">
+            <label for="btn-modal3">Cerrar</label>
+        </div>
+    </div>
+</div>
+<input type="checkbox" id="btn-modal4">
+<div class="contaainer-modal4">
+    <div class="content-modal4">
+        <h2>Guayos</h2>
+        <p>Bienvenido a nuestros guayos deportivos aqui podras ver todas las opciones y estilos disponibles
+            para que elijas la que mas te guste, con una comodida para correr y para tus pies.Tenemos guayos de diferentes equipos y marcas reconocidas, 
+            todas ellas estan fabricadas con materiales de alta calidad para garantizar durabilidad.
+        </p>
+        <div class="btn-cerrar4">
+            <label for="btn-modal4">Cerrar</label>
+        </div>
+    </div>
+</div>
+<input type="checkbox" id="btn-modal5">
+<div class="contaainer-modal5">
+    <div class="content-modal5">
+        <h2>Guantes deportivos</h2>
+        <p>Bienvenido a nuestros guantes deportivos aqui podras ver todas las opciones y estilos disponibles
+            para que elijas la que mas te guste, con una comodida para tus manos.Tenemos guantes de diferentes marcas reconocidas, 
+            todas ellas estan fabricadas con materiales de alta calidad para garantizar durabilidad.
+        </p>
+        <div class="btn-cerrar5">
+            <label for="btn-modal5">Cerrar</label>
+        </div>
+    </div>
+</div>
     <footer class="footer">
         <div class="container">
             <div class="footer-row">
@@ -71,7 +206,6 @@
                     <h4>Conoce a A.W.M.H.V Sport</h4>
                     <ul>
                         <li><a href="#">Nosotros</a></li>
-                        <li><a href="#">Nuestra historia</a></li>
                         <li><a href="#">Nuestros servicios</a></li>
                         <li><a href="#">mapa del sitio</a></li>
                     </ul>
@@ -79,7 +213,6 @@
                 <div class="footerLinks">
                     <h4>Servicio de ayuda</h4>
                     <ul>
-                        <li><a href="#">Contáctanos</a></li>
                         <li><a href="#">Compras y devoluciones</a></li>
                         <li><a href="#">Medios de pago</a></li>
                     </ul>

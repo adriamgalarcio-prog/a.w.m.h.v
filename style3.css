@@ -6,16 +6,13 @@
     list-style: none;
 }
 
-body{
-    background-color: rgb(224, 221, 221);
-}
-
 img{
     margin: 5px;
     height: 70px;
     width: 70px;
     border-radius: 58px;
 }
+
 .contenedor{
     width: 90%;
     max-width: 450px;
@@ -117,5 +114,3 @@ form a:hover{
     height: 40px;
     width: 200px;
 }
-
-
