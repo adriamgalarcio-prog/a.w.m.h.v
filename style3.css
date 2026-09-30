@@ -8,8 +8,8 @@
 
 img{
     margin: 5px;
-    height: 70px;
-    width: 70px;
+    height: 50px;
+    width: 50px;
     border-radius: 58px;
 }
 
@@ -20,7 +20,6 @@ img{
     border-radius: 10px;
     color: black;
     border: 2px solid rgb(61, 59, 59);
-    
 }
 
 .contenedor h1{
@@ -114,3 +113,4 @@ form a:hover{
     height: 40px;
     width: 200px;
 }
+
