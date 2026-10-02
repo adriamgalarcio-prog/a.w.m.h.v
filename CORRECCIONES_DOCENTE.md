@@ -179,3 +179,34 @@ empezar sin que se note. Con `animation-play-state: paused` en `:hover`, la cint
 cuando el cursor pasa por encima. Si el computador tiene activado "reducir movimiento", la cinta queda quieta.
 
 Se quitó el banner viejo (`.Contenedor` / `.Principal`) y sus estilos. `Img/fondo-de-calidad.png` ya no se usa.
+
+---
+
+## Tercera entrega: se une su trabajo "Personaliza"
+
+Su commit **Personaliza** (formulario en `Deportivo.html` a `Deportivo4.html`) se unió a la rama `profe`.
+
+**Lo que se respetó de su trabajo:**
+- `login.html` borrado: en el proyecto acordamos no pedir registro.
+- Los botones de las tarjetas del inicio llevan a sus páginas de personalización. El texto pasó de
+  "Ver más" a **"Personalizar"**, porque un botón debe decir lo que hace.
+- El segundo botón de la portada ahora es **"Personaliza tu camiseta"**.
+
+**Lo que se corrigió en las páginas `Deportivo*.html`:**
+- En `Deportivo2`, `3` y `4` el `<select>` no tenía `<label>`: un lector de pantalla no sabe qué se escoge.
+- El formulario **ahora envía el pedido por WhatsApp** con el archivo nuevo `personalizacion.js`
+  (el mismo truco de `contacto.js`). El mensaje incluye la página desde donde se escribe, el nombre,
+  el correo, el producto y las características.
+- **Un enlace de WhatsApp solo lleva texto, no archivos.** Por eso la imagen ya no es obligatoria,
+  el mensaje dice el nombre de la imagen y debajo del campo aparece:
+  *"Cuando se abra WhatsApp, adjunta esta misma imagen en el chat."*
+- `Personalizacion.css`: la caja medía `900px` × `1100px` fijos y en el celular se salía. Ahora usa
+  `width: 90%` con `max-width`.
+- Se repitieron errores que ya se habían corregido en las otras páginas: `lang="en"`, `Img/logo.png`
+  y la flecha sin `alt`. **Revisen esto cada vez que copien una página vieja para hacer una nueva.**
+
+**Pendiente para ustedes:**
+- [ ] `register.html` quedó sola: ninguna página lleva a ella y su enlace "Iniciar sesión" apunta a
+      `login.html`, que ya no existe. Como no habrá registro, bórrenla.
+- [ ] Las 4 páginas `Deportivo*.html` son casi iguales (solo cambia el título). En Flask serán una sola
+      plantilla que recibe el tipo de producto.

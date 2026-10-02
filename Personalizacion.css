@@ -16,8 +16,11 @@ a img{
 
 .Personalizacion{
     background-color: white;
-    height: 1100px;
-    width: 900px;
+    /* Antes: height: 1100px y width: 900px fijos. En el celular se salía de la pantalla. */
+    width: 90%;
+    max-width: 900px;
+    padding-bottom: 40px;
+    margin-bottom: 50px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
     margin-top: 50px;
     border-radius: 25px;
@@ -25,8 +28,8 @@ a img{
 }
 
 .form{
-    padding: 30px 80px;
-    width: 50%;
+    padding: 30px 20px;
+    max-width: 420px;
     display: flex;
     flex-direction: column;
 }
@@ -39,7 +42,7 @@ a img{
 }
 
 .form p{
-    width: 400px;
+    max-width: 400px;
     font-size: 16px;
     margin-bottom: 40px;
 }
@@ -91,4 +94,19 @@ label{
     border-radius: 10px;
     margin-top: 25px;
     box-shadow: 0 0 20px rgba(0, 19, 128, 0.753);  
+}
+
+/* Ayuda debajo del campo de la imagen (agregado por el docente) */
+.form .ayuda{
+    font-size: 14px;
+    color: rgb(85, 40, 120);
+    margin-top: -15px;
+    margin-bottom: 25px;
+}
+
+/* Los campos ocupan el ancho disponible sin pasarse de 300 px */
+.box, .box-1, .box-2{ width: 100%; max-width: 300px; }
+
+@media (max-width: 768px){
+    .form h3{ font-size: 32px; }
 }
