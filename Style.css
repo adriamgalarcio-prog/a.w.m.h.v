@@ -107,7 +107,7 @@ img{
 
 .footerLinks{
     width: 25%;
-    padding: 0 15;
+    padding: 0 15px;
     border-bottom: none;
 }
 
@@ -129,7 +129,7 @@ img{
     text-decoration: none;
     display: block;
     margin-bottom: 10px;
-    transition: all, 50ms ease;
+    transition: all 50ms ease;
 }
 
 .footerLinks ul li a:hover{
@@ -143,8 +143,8 @@ img{
     text-decoration: none;
     display: block;
     margin-bottom: 10px;
-    transition: all, 50ms ease;
-    cursor: none;
+    transition: all 50ms ease;
+    cursor: default;
 }
 
 .footerLinks p:hover{
@@ -158,4 +158,14 @@ h1{
     font-family: Arial, sans-serif;
     font-weight: 800;
     margin-bottom: 50px;
+}
+
+/* ===== Celular (agregado por el docente) ===== */
+@media (max-width: 768px){
+    header{ flex-direction: column; gap: 10px; padding: 10px 5%; }
+    .nav-links{ flex-wrap: wrap; justify-content: center; gap: 12px 18px; font-size: 16px; }
+    .footerLinks{ width: 100%; padding: 0 20px; margin-bottom: 25px; }
+    .Contenedor{ height: auto; padding: 20px 0; }
+    .Contenedor .Card{ width: 95%; }
+    .Principal{ width: 100%; height: 200px; }
 }

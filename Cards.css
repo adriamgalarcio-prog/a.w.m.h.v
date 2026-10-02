@@ -73,3 +73,9 @@
     background: rgb(17, 75, 141);
     color: white;
 }
+
+/* ===== Celular (agregado por el docente) ===== */
+@media (max-width: 768px){
+    .cards-container, .card-container{ width: 100%; height: auto; flex-wrap: wrap; }
+    .card{ flex: 1 1 150px; margin: 10px; }
+}

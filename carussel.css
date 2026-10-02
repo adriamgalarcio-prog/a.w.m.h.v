@@ -80,3 +80,9 @@
 .indicator:active{
     background-color: purple;
 }
+
+/* ===== Celular (agregado por el docente) ===== */
+@media (max-width: 768px){
+    .carussel-container{ margin-top: 0; }
+    .carussel-item img{ height: 220px; }
+}

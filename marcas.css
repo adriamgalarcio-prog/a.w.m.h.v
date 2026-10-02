@@ -110,7 +110,7 @@ h1{
 
 .footerLinks{
     width: 25%;
-    padding: 0 15;
+    padding: 0 15px;
     border-bottom: none;
 }
 
@@ -132,7 +132,7 @@ h1{
     text-decoration: none;
     display: block;
     margin-bottom: 10px;
-    transition: all, 50ms ease;
+    transition: all 50ms ease;
 }
 
 .footerLinks ul li a:hover{
@@ -152,4 +152,13 @@ img{
     width: 30px;
     height: 30px;
     border-radius: 50%;
+}
+
+/* ===== Celular (agregado por el docente) ===== */
+@media (max-width: 768px){
+    header{ flex-direction: column; gap: 10px; padding: 10px 5%; }
+    .nav-links{ flex-wrap: wrap; justify-content: center; gap: 12px 18px; font-size: 16px; }
+    .footerLinks{ width: 100%; padding: 0 20px; margin-bottom: 25px; }
+    .cards-container, .card-container{ width: 100%; height: auto; flex-wrap: wrap; }
+    .card{ flex: 1 1 150px; margin: 10px; }
 }
