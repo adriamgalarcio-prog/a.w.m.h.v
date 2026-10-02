@@ -8,6 +8,9 @@
 
 
 header{
+    position: sticky;   /* el menú se queda pegado arriba al bajar */
+    top: 0;
+    z-index: 1000;      /* por encima de las tarjetas y del carrusel */
     background: url(Img/barra.png) center/cover no-repeat;
     display: flex;
     align-items: center;
@@ -64,22 +67,7 @@ header{
 
 
 
-.Contenedor{
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
 
-.Principal{
-    height: 500px;
-    width: 950px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 5%;
-    background:  url(Img/fondo-de-calidad.png) center/cover no-repeat;
-}
 
 img{
     width: 30px;
@@ -165,7 +153,4 @@ h1{
     header{ flex-direction: column; gap: 10px; padding: 10px 5%; }
     .nav-links{ flex-wrap: wrap; justify-content: center; gap: 12px 18px; font-size: 16px; }
     .footerLinks{ width: 100%; padding: 0 20px; margin-bottom: 25px; }
-    .Contenedor{ height: auto; padding: 20px 0; }
-    .Contenedor .Card{ width: 95%; }
-    .Principal{ width: 100%; height: 200px; }
 }

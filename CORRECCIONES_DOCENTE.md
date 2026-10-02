@@ -149,3 +149,33 @@ No se corrigió porque son decisiones suyas o porque falta contenido:
       plantilla `producto.html` que lee los datos de la tabla `camisetas`. Este es el siguiente paso del proyecto.
 - [ ] **El personalizador de nombre y número**, el carrito y el pedido por WhatsApp (la función
       estrella del proyecto) todavía no existen. `app.py` está vacío.
+
+---
+
+## Segunda entrega: cambios de diseño
+
+**1. Menú fijo arriba (sticky).** En `Style.css`, `style2.css` y `marcas.css` el `header` tiene
+`position: sticky; top: 0;`. El menú se queda arriba mientras bajan por la página.
+- En `Inicio.html` no funcionaba porque `style2.css` le ponía `height: 100vh` al `body`: un
+  elemento sticky solo se queda fijo **dentro de su contenedor**, y el body medía una sola
+  pantalla. El fondo ahora está en `body::before`, así que se ve igual pero el menú sí se queda.
+- `scroll-margin-top` evita que, al saltar a `#guayos` o `#Masculino`, el título quede escondido detrás del menú.
+
+**2. Títulos de sección que se leen.** "Ropa Para hombre" era negro sobre el fondo oscuro.
+Ahora los títulos de `Inicio.html` son blancos sobre una franja morada: se leen igual sobre el
+fondo oscuro que sobre el blanco.
+
+**3. Portada nueva (hero) en `Index.html`.** Estilos en el archivo nuevo `hero.css`, comentado
+bloque por bloque. Usa su propia camiseta morada (`Img/AWMHV2.png`, que no estaban usando), recortada
+sin el fondo blanco en `Img/hero-camiseta.png`. Fíjense en:
+- `:root` con variables de color (`--oro`, `--violeta`…): un color se cambia en un solo lugar.
+- `display: grid` con dos columnas, que en el celular pasa a una sola.
+- `clamp()` en el tamaño del título: crece con la pantalla sin pasarse.
+- La fuente *Big Shoulders Display* (Google Fonts), con letras altas y estrechas como las de una camiseta.
+
+**4. Cinta de marcas infinita.** Debajo de la portada. Los logos están **dos veces** dentro de
+`.marcas-pista`; la animación la corre hacia la izquierda la mitad de su ancho y vuelve a
+empezar sin que se note. Con `animation-play-state: paused` en `:hover`, la cinta se detiene
+cuando el cursor pasa por encima. Si el computador tiene activado "reducir movimiento", la cinta queda quieta.
+
+Se quitó el banner viejo (`.Contenedor` / `.Principal`) y sus estilos. `Img/fondo-de-calidad.png` ya no se usa.

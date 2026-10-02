@@ -1,0 +1,196 @@
+/* =====================================================================
+   hero.css — Portada (hero) y cinta de marcas de la página de inicio
+   Agregado por el docente. Léanlo: cada bloque explica qué hace.
+   ===================================================================== */
+
+/* Colores de la marca en un solo lugar.
+   Si quieren cambiar un color, lo cambian aquí y se actualiza en todo el archivo. */
+:root{
+    --noche:   #160428;   /* fondo del hero */
+    --violeta: #5b1a9e;   /* el morado de la camiseta */
+    --neon:    #a855f7;   /* brillo detrás de la camiseta */
+    --oro:     #f6c312;   /* el amarillo del nombre y el número */
+    --lila:    #d8c8ef;   /* texto secundario sobre fondo oscuro */
+}
+
+/* ---------- HERO ---------- */
+
+.hero{
+    background: var(--noche);
+    color: white;
+    overflow: hidden;            /* que el brillo no se salga de la sección */
+}
+
+.hero-contenido{
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 70px 24px 80px;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;   /* dos columnas: texto | camiseta */
+    align-items: center;
+    gap: 40px;
+}
+
+.hero-texto{
+    margin: 0;                   /* Style.css pone margin: auto a todo; aquí no lo queremos */
+}
+
+.hero h1{
+    font-family: 'Big Shoulders Display', 'Arial Narrow', sans-serif;
+    font-weight: 800;
+    font-size: clamp(48px, 7vw, 92px);   /* crece con la pantalla, entre 48 y 92 px */
+    line-height: 0.95;
+    text-align: left;
+    margin: 0 0 24px;
+    color: white;
+}
+
+.hero p{
+    font-family: Arial, sans-serif;
+    font-size: 19px;
+    line-height: 1.55;
+    color: var(--lila);
+    max-width: 30em;
+    margin: 0 0 36px;
+}
+
+.hero-botones{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin: 0;
+}
+
+.boton{
+    display: inline-block;
+    font-family: Arial, sans-serif;
+    font-weight: 700;
+    font-size: 17px;
+    text-decoration: none;
+    padding: 15px 28px;
+    border-radius: 999px;
+    margin: 0;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.boton-principal{
+    border: 2px solid var(--oro);   /* mismo borde que el otro botón, para que midan igual */
+    background: var(--oro);
+    color: var(--noche);
+}
+
+.boton-secundario{
+    border: 2px solid white;
+    color: white;
+}
+
+.boton:hover{ transform: translateY(-2px); }
+.boton-secundario:hover{ background: rgba(255, 255, 255, 0.12); }
+
+/* Contorno visible al navegar con el teclado (Tab) */
+.boton:focus-visible{
+    outline: 3px solid var(--oro);
+    outline-offset: 3px;
+}
+
+/* La camiseta, con un círculo de luz detrás para que no se pierda en el fondo */
+.hero-camiseta{
+    position: relative;
+    display: grid;
+    place-items: center;
+    margin: 0;
+}
+
+.hero-camiseta::before{
+    content: '';
+    position: absolute;
+    width: 115%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(168, 85, 247, 0.55) 0%, rgba(168, 85, 247, 0) 65%);
+}
+
+/* Style.css le pone 30 x 30 px y bordes redondos a TODAS las imágenes.
+   Por eso aquí hay que devolverle su tamaño y quitarle lo redondo. */
+.hero-camiseta img{
+    position: relative;          /* queda por encima del círculo de luz */
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    border-radius: 0;
+    transform: rotate(-6deg);
+    filter: drop-shadow(0 25px 30px rgba(0, 0, 0, 0.5));
+}
+
+/* ---------- CINTA DE MARCAS ---------- */
+
+/* Truco de la cinta infinita:
+   1. Los logos se escriben DOS veces seguidas dentro de .marcas-pista.
+   2. La animación mueve la pista hacia la izquierda exactamente la mitad de su ancho.
+   3. En ese momento la segunda copia está justo donde empezó la primera,
+      así que la animación vuelve a empezar sin que se note el salto. */
+
+.marcas-cinta{
+    background: white;
+    border-top: 4px solid var(--violeta);
+    border-bottom: 4px solid var(--violeta);
+    overflow: hidden;            /* esconde los logos que todavía no entran a la pantalla */
+    padding: 22px 0;
+}
+
+.marcas-pista{
+    display: flex;
+    width: max-content;          /* la pista mide lo que midan todos los logos juntos */
+    margin: 0;
+    animation: desplazar 22s linear infinite;
+}
+
+/* Cuando el cursor pasa por encima, la cinta se detiene */
+.marcas-cinta:hover .marcas-pista{
+    animation-play-state: paused;
+}
+
+.marcas-grupo{
+    display: flex;
+    align-items: center;
+    gap: 80px;
+    padding-right: 80px;         /* el mismo espacio entre la última marca y la primera de la copia */
+    margin: 0;
+}
+
+.marcas-grupo img{
+    width: auto;
+    height: 56px;
+    border-radius: 0;
+    margin: 0;
+}
+
+@keyframes desplazar{
+    from{ transform: translateX(0); }
+    to  { transform: translateX(-50%); }
+}
+
+/* Personas a las que el movimiento les marea pueden pedirle al sistema
+   "reducir movimiento". En ese caso la cinta queda quieta y centrada. */
+@media (prefers-reduced-motion: reduce){
+    .marcas-pista{ animation: none; width: 100%; justify-content: center; }
+    .marcas-grupo{ flex-wrap: wrap; justify-content: center; padding: 0 20px; gap: 40px; }
+    .marcas-grupo[aria-hidden="true"]{ display: none; }
+}
+
+/* ---------- CELULAR ---------- */
+@media (max-width: 768px){
+    .hero-contenido{
+        grid-template-columns: 1fr;   /* una sola columna */
+        padding: 40px 20px 50px;
+        gap: 10px;
+        text-align: center;
+    }
+    .hero h1{ text-align: center; }
+    .hero p{ margin-left: auto; margin-right: auto; }
+    .hero-botones{ justify-content: center; }
+    .hero-camiseta{ order: -1; }      /* la camiseta arriba del texto */
+    .hero-camiseta img{ max-width: 230px; }
+    .marcas-grupo{ gap: 50px; padding-right: 50px; }
+    .marcas-grupo img{ height: 40px; }
+}

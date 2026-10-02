@@ -8,6 +8,10 @@
     <link rel="stylesheet" href="Style.css">
     <link rel="stylesheet" href="carussel.css">
     <link rel="stylesheet" href="Cards.css">
+    <link rel="stylesheet" href="hero.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -23,16 +27,43 @@
         </nav>
     </header>
     
-    <div class="Contenedor">
-
-        <div class="Card">
-            <div class="Principal">
-                <div class="Imagen-principal"></div>
-                <div class="Detalle">
+    <!-- HERO: lo primero que ve el cliente -->
+    <section class="hero">
+        <div class="hero-contenido">
+            <div class="hero-texto">
+                <h1>Viste los colores de tu equipo</h1>
+                <p>Camisetas de clubes y selecciones, pantalonetas, guayos y accesorios
+                    de fútbol para hombre y mujer.</p>
+                <div class="hero-botones">
+                    <a href="Inicio.html" class="boton boton-principal">Ver la tienda</a>
+                    <a href="https://wa.me/573505186236" target="_blank" class="boton boton-secundario">Escríbenos por WhatsApp</a>
                 </div>
             </div>
+            <div class="hero-camiseta">
+                <img src="Img/hero-camiseta.png" alt="Camiseta morada A.W.M.H.V con el nombre Mbappé y el número 10">
+            </div>
         </div>
-    </div>
+    </section>
+
+    <!-- CINTA DE MARCAS: los logos van dos veces para que el movimiento no tenga fin -->
+    <section class="marcas-cinta" aria-label="Marcas que vendemos">
+        <div class="marcas-pista">
+        <div class="marcas-grupo">
+            <img src="Img/Adidas.png" alt="Adidas">
+            <img src="Img/Nike.png" alt="Nike">
+            <img src="Img/Golty.png" alt="Golty">
+            <img src="Img/Puma.png" alt="Puma">
+            <img src="Img/Under-armour.png" alt="Under Armour">
+        </div>
+        <div class="marcas-grupo" aria-hidden="true">
+            <img src="Img/Adidas.png" alt="">
+            <img src="Img/Nike.png" alt="">
+            <img src="Img/Golty.png" alt="">
+            <img src="Img/Puma.png" alt="">
+            <img src="Img/Under-armour.png" alt="">
+        </div>
+        </div>
+    </section>
 
 <div class="carussel-container">
     <div class="carussel" id="carussel">

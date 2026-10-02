@@ -9,9 +9,22 @@
 
 body{
     width: 100%;
+    position: relative;
+    /* Antes: height: 100vh. Eso no dejaba que el menú se quedara pegado (sticky),
+       porque un elemento sticky solo se queda fijo dentro de su contenedor,
+       y el body medía una sola pantalla. */
+}
+
+/* El fondo de la primera pantalla, ahora en una capa aparte del body */
+body::before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
     height: 100vh;
     background: url(Img/Fondo-inicio.png) center/cover no-repeat;
-    
+    z-index: -1;
 }
 
 .awmhv p{
@@ -24,6 +37,10 @@ body{
     margin-top: 100px;
 }
 header{
+    position: sticky;   /* el menú se queda pegado arriba al bajar */
+    top: 0;
+    z-index: 1000;      /* por encima de las tarjetas y del carrusel */
+    background: url(Img/barra.png) center/cover no-repeat;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -70,7 +87,16 @@ header{
 }
 
 h1{
-    color: black;
+    /* Antes el texto era negro y no se leía sobre el fondo oscuro.
+       Ahora es blanco sobre una franja morada: se lee en cualquier fondo. */
+    font-family: 'Big Shoulders Display', 'Arial Narrow', sans-serif;
+    font-weight: 800;
+    font-size: 44px;
+    color: white;
+    background: #5b1a9e;
+    padding: 6px 30px;
+    border-radius: 8px;
+    width: fit-content;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -143,7 +169,7 @@ h1{
 }
 
 .mujer{
-    color: black;
+    color: white;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -227,7 +253,7 @@ h1{
 }
 
 .Add{
-    color: black;
+    color: white;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -244,3 +270,6 @@ h1{
     .card{ flex: 1 1 150px; margin: 10px; }
     .awmhv p{ width: 90%; left: 5%; font-size: 20px; top: 200px; }
 }
+
+/* Al saltar a una sección (#Masculino, #guayos...) dejar espacio para el menú fijo */
+[id]{ scroll-margin-top: 110px; }
