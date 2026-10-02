@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personaliza a tu gusto</title>
+    <link rel="icon" type="image/png" href="Img/logo.png">
+    <link rel="stylesheet" href="Personalizacion.css">
+</head>
+<body>
+        <div class="Personalizacion">
+            <a href="Index.html#Galeria">
+            <img src="Img/flechita2.png" alt="" class="flecha">
+            </a>
+            <form class="form">
+            <h3>Personalización de tus guantes y otros</h3>
+            <p>Sube y elige la imagen que quieras y nosotros te la personalizaremos a tus gustos</p>
+            <label for="name">Escribe tu nombre</label>
+            <input type="text" id="name" class="box" required>
+            <label for="correo">Escribe tu correo</label>
+            <input type="email" id="correo" class="box" required>
+            <select name="opciones" id="opciones" class="box" required>
+                <option value="Hombre">Hombre</option>
+                <option value="Accesorio">Accesorio</option>
+            </select>
+            <label for="url">Sube tu Imagen</label>
+            <input type="file" id="url" class="box-2" required>
+            <label for="message">Escribe Características</label>
+            <textarea class="box-1" id="message" cols="30" rows="10" required></textarea>
+            <input type="submit" value="Enviar" class="submit">
+            </form>
+        </div>
+</body>
+</html>
