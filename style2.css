@@ -138,6 +138,10 @@ h1{
     text-decoration: none;
 }
 
+.card-container a{
+    text-decoration: none;
+}
+
 .mujer{
     color: black;
     display: flex;
@@ -168,11 +172,15 @@ h1{
     font-size: 20px;
     margin-bottom: 10px;
     font-weight: 500;
-    
+    margin-left: 50px;
     
 }
 
 .footerLinks a{
+    color: white;
+}
+
+.footerLinks p{
     color: white;
 }
 
@@ -182,9 +190,25 @@ h1{
     display: block;
     margin-bottom: 10px;
     transition: all, 50ms ease;
+    margin-left: 50px;
 }
 
 .footerLinks ul li a:hover{
+    color: rgb(98, 6, 119);
+    padding-left: 6px;
+}
+
+.footerLinks p{
+    font-size: 15px;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 10px;
+    transition: all, 50ms ease;
+    margin-left: 50px;
+    cursor: none;
+}
+
+.footerLinks p:hover{
     color: rgb(98, 6, 119);
     padding-left: 6px;
 }
@@ -193,6 +217,13 @@ h1{
     height: 30px;
     width: 30px;
     border-radius: 50px;
+}
+
+.footerLinks h3{
+    color: white;
+    font-size: 20px;
+    margin-bottom: 10px;
+    font-weight: 500;
 }
 
 .Add{

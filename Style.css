@@ -137,6 +137,21 @@ img{
     padding-left: 6px;
 }
 
+.footerLinks p{
+    color: white;
+    font-size: 15px;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 10px;
+    transition: all, 50ms ease;
+    cursor: none;
+}
+
+.footerLinks p:hover{
+    color: rgb(98, 6, 119);
+    padding-left: 6px;
+}
+
 h1{
     text-align: center;
     margin-top: 20px;
