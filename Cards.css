@@ -7,7 +7,7 @@
 }
 
 .cards-container{
-    width: 100%;
+    width: 750px;
     height: 450px;
     display: flex;
     max-width: 1100px;

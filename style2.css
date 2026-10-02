@@ -99,7 +99,7 @@ h1{
     border-radius: 6px;
     overflow: hidden;
     background: white;
-    box-shadow: 0px 1px 10px rgba(0,0,0,0.2);
+    box-shadow: 5px 5px 20px rgba(0,0,0,0.2);
     cursor: default;
     transition: all 400ms ease;
 }
@@ -193,4 +193,13 @@ h1{
     height: 30px;
     width: 30px;
     border-radius: 50px;
+}
+
+.Add{
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 200px;
+    margin-bottom: 50px;
 }
