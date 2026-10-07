@@ -4,11 +4,11 @@
 -- pestaña "SQL", peguen todo este archivo y presionen "Continuar".
 -- =====================================================================
 
-CREATE DATABASE IF NOT EXISTS awmhv
+CREATE DATABASE IF NOT EXISTS awmhv_sport
     CHARACTER SET utf8mb4            -- utf8mb4: acepta tildes, ñ y emojis
     COLLATE utf8mb4_spanish_ci;
 
-USE awmhv;
+USE awmhv_sport;
 
 -- Una sola tabla: cada fila es un pedido del personalizador.
 CREATE TABLE IF NOT EXISTS pedidos (

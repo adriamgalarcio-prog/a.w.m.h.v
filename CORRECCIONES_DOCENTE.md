@@ -263,7 +263,7 @@ previa. La tienda los ve en un panel protegido con usuario y contraseña.
 
 | Archivo | Qué hace |
 |---|---|
-| `basedatos.sql` | Crea la base `awmhv` y la tabla `pedidos`. Se ejecuta una sola vez en phpMyAdmin |
+| `basedatos.sql` | Crea la base `awmhv_sport` y la tabla `pedidos`. Se ejecuta una sola vez en phpMyAdmin |
 | `config.py` | Datos de conexión a MySQL y usuario/clave del panel |
 | `app.py` | El servidor: muestra las páginas, recibe los pedidos y muestra el panel |
 | `templates/pedidos.html` | El panel de pedidos (plantilla de Flask) |
