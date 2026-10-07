@@ -11,7 +11,7 @@ header{
     position: sticky;   /* el menú se queda pegado arriba al bajar */
     top: 0;
     z-index: 1000;      /* por encima de las tarjetas y del carrusel */
-    background: url(Img/barra.png) center/cover no-repeat;
+    background: url(../img/barra.png) center/cover no-repeat;
     display: flex;
     align-items: center;
     justify-content: space-between;

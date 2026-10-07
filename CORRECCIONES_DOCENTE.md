@@ -320,3 +320,43 @@ Dos pedidos completos desde el navegador, con y sin imagen, con tildes (`Pérez`
 - 13 envíos falsos directos al servidor, todos rechazados: nombre con números, número de 3 cifras,
   talla inventada, imagen falsa, imagen de 6 MB, envío de 17 MB, entre otros.
 - El servidor con MySQL apagado.
+
+---
+
+## Sexta entrega: archivos organizados en `assets/`
+
+Los estilos, las imágenes y los scripts ya no están sueltos en la raíz del proyecto:
+
+```
+a.w.m.h.v/
+├── Index.html, Inicio.html, Deportivo.html ...   ← las páginas siguen en la raíz
+├── assets/
+│   ├── css/        ← todos los .css (Style.css, hero.css, personalizador.css...)
+│   ├── js/         ← todos los .js (Descuentos.js, contacto.js, personalizador.js...)
+│   └── img/        ← lo que estaba en Img/
+│       ├── carrusel/   ← lo que estaba en "Img carussel/"
+│       └── ropa/       ← lo que estaba en "img ropa/"
+├── base_de_datos/  ← awmhv_sport.sql para importar en phpMyAdmin
+├── templates/      ← plantillas de Flask (panel de pedidos)
+├── subidas/        ← imágenes de los pedidos
+└── app.py, config.py, requirements.txt
+```
+
+**Por qué:**
+- **Orden.** Con más de 100 archivos sueltos en la raíz era difícil encontrar las páginas.
+- **Sin espacios.** Se quitaron los espacios en los nombres de carpeta (`Img carussel`, `img ropa`). En
+  un enlace, un espacio se convierte en `%20` y es fuente de errores.
+- **La convención de Flask.** Es la estructura que esperan los proyectos web. Cuando pasen a plantillas de
+  Flask, `assets/` cumple el papel de la carpeta `static/`.
+
+**Ojo con las rutas dentro del CSS.** Una ruta en un `.css` se cuenta **desde la carpeta del CSS**, no desde la
+página. Por eso en `assets/css/Style.css` el fondo del menú ahora es `url(../img/barra.png)`: el `..` sube de
+`css/` a `assets/` y de ahí entra a `img/`.
+
+Las rutas que aparecen en las secciones anteriores de este documento (por ejemplo `Img/hero-camiseta.png` o `hero.css`)
+ahora están dentro de `assets/` (`assets/img/hero-camiseta.png`, `assets/css/hero.css`).
+
+**Se probó:** las 53 páginas abiertas desde Flask y desde un servidor como el de XAMPP: cero archivos rotos
+(CSS, JS, imágenes y fondos), y un pedido completo guardado en la base de datos.
+
+`Ayudas/Whatsapp` no se movió porque no es CSS válido y ninguna página lo usa. Sigue pendiente que ustedes lo borren o lo arreglen.

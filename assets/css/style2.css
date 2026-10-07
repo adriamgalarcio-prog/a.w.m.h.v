@@ -23,7 +23,7 @@ body::before{
     left: 0;
     width: 100%;
     height: 100vh;
-    background: url(Img/Fondo-inicio.png) center/cover no-repeat;
+    background: url(../img/Fondo-inicio.png) center/cover no-repeat;
     z-index: -1;
 }
 
@@ -40,7 +40,7 @@ header{
     position: sticky;   /* el menú se queda pegado arriba al bajar */
     top: 0;
     z-index: 1000;      /* por encima de las tarjetas y del carrusel */
-    background: url(Img/barra.png) center/cover no-repeat;
+    background: url(../img/barra.png) center/cover no-repeat;
     display: flex;
     align-items: center;
     justify-content: space-between;
