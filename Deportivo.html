@@ -3,35 +3,193 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Personaliza a tu gusto</title>
+    <title>Personaliza tu camiseta | A.W.M.H.V Sport</title>
     <link rel="icon" type="image/png" href="Img/Logo.png">
-    <link rel="stylesheet" href="Personalizacion.css">
+    <link rel="stylesheet" href="Style.css">
+    <link rel="stylesheet" href="personalizador.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-        <div class="Personalizacion">
-            <a href="Index.html#Galeria">
-            <img src="Img/flechita2.png" alt="Volver" class="flecha">
-            </a>
-            <form class="form" id="form-personalizacion">
-            <h3>Personalización de tu Camisa</h3>
-            <p>Sube y elige la imagen que quieras y nosotros te la personalizaremos a tus gustos</p>
-            <label for="name">Escribe tu nombre</label>
-            <input type="text" id="name" class="box" required>
-            <label for="correo">Escribe tu correo</label>
-            <input type="email" id="correo" class="box" required>
-            <label for="opciones">Selecciona el producto</label>
-            <select name="opciones" id="opciones" class="box" required>
-                <option value="Hombre">Hombre</option>
-                <option value="Mujer">Mujer</option>
-            </select>
-            <label for="url">Sube tu Imagen</label>
-            <input type="file" id="url" class="box-2" accept="image/*">
-            <p class="ayuda">Cuando se abra WhatsApp, adjunta esta misma imagen en el chat.</p>
-            <label for="message">Escribe Características</label>
-            <textarea class="box-1" id="message" cols="30" rows="10" required></textarea>
-            <input type="submit" value="Enviar por WhatsApp" class="submit">
-            </form>
-        </div>
-    <script src="personalizacion.js"></script>
+    <header>
+        <a href="Index.html"><img src="Img/Logo.png" class="Logo" alt="A.W.M.H.V Sport, ir al inicio"></a>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="Index.html">Inicio</a></li>
+                <li><a href="Inicio.html">Shop</a></li>
+                <li><a href="Marcas.html">Marcas</a></li>
+                <li><a href="contact.html">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="personalizador">
+
+        <!-- ============ VISTA PREVIA ============
+             Las dos camisetas son un dibujo SVG: están hechas de etiquetas,
+             así que JavaScript les puede cambiar el color, el texto y la imagen. -->
+        <section class="escenario" aria-label="Vista previa de tu camiseta">
+            <svg id="camisetas" viewBox="0 0 840 470" role="img"
+                 aria-label="Vista previa de la camiseta, frente y espalda">
+                <defs>
+                    <!-- La forma de la camiseta (se usa 4 veces: dibujo, recorte y sombra) -->
+                    <path id="forma" d="M150 30 L85 50 L20 125 L62 168 L100 142 L100 432
+                             Q200 442 300 432 L300 142 L338 168 L380 125 L315 50 L250 30 Z"/>
+
+                    <!-- El recorte: lo que se dibuje con él no se sale de la camiseta -->
+                    <clipPath id="recorte">
+                        <use href="#forma"/>
+                    </clipPath>
+
+                    <!-- Sombras de la tela: más oscuro en los bordes, claro en el centro -->
+                    <linearGradient id="sombra" x1="0" x2="1" y1="0" y2="0">
+                        <stop offset="0"    stop-color="#000" stop-opacity="0.35"/>
+                        <stop offset="0.25" stop-color="#000" stop-opacity="0.05"/>
+                        <stop offset="0.5"  stop-color="#fff" stop-opacity="0.08"/>
+                        <stop offset="0.75" stop-color="#000" stop-opacity="0.05"/>
+                        <stop offset="1"    stop-color="#000" stop-opacity="0.35"/>
+                    </linearGradient>
+                </defs>
+
+                <!-- FRENTE -->
+                <g id="frente">
+                    <use href="#forma" class="tela" fill="#5b1a9e"/>
+                    <!-- clip-path: la imagen no se sale de la camiseta -->
+                    <image class="estampado" id="imagen-frente" href="" x="0" y="0" width="0" height="0"
+                           preserveAspectRatio="xMidYMid meet" clip-path="url(#recorte)"/>
+                    <path class="detalle" fill="none" stroke="#f6c312" stroke-width="9" stroke-linecap="round" d="M150 30 Q200 62 250 30"/>
+                    <path class="detalle" fill="none" stroke="#f6c312" stroke-width="9" stroke-linecap="round" d="M20 125 L62 168"/>
+                    <path class="detalle" fill="none" stroke="#f6c312" stroke-width="9" stroke-linecap="round" d="M380 125 L338 168"/>
+                    <use href="#forma" fill="url(#sombra)" class="sombra"/>
+                </g>
+
+                <!-- ESPALDA (corrida 440 px a la derecha) -->
+                <g id="espalda" transform="translate(440 0)">
+                    <use href="#forma" class="tela" fill="#5b1a9e"/>
+                    <!-- clip-path: la imagen no se sale de la camiseta -->
+                    <image class="estampado" id="imagen-espalda" href="" x="0" y="0" width="0" height="0"
+                           preserveAspectRatio="xMidYMid meet" clip-path="url(#recorte)"/>
+                    <text id="svg-nombre" class="dorsal" fill="#f6c312" font-family="'Big Shoulders Display', Impact, 'Arial Narrow', sans-serif" font-weight="800" x="200" y="125" text-anchor="middle"></text>
+                    <text id="svg-numero" class="dorsal" fill="#f6c312" font-family="'Big Shoulders Display', Impact, 'Arial Narrow', sans-serif" font-weight="800" x="200" y="290" text-anchor="middle" font-size="150"></text>
+                    <path class="detalle" fill="none" stroke="#f6c312" stroke-width="9" stroke-linecap="round" d="M150 30 Q200 42 250 30"/>
+                    <path class="detalle" fill="none" stroke="#f6c312" stroke-width="9" stroke-linecap="round" d="M20 125 L62 168"/>
+                    <path class="detalle" fill="none" stroke="#f6c312" stroke-width="9" stroke-linecap="round" d="M380 125 L338 168"/>
+                    <use href="#forma" fill="url(#sombra)" class="sombra"/>
+                </g>
+
+                <text x="200" y="465" text-anchor="middle" class="etiqueta-vista" font-family="Arial, sans-serif" font-size="18" fill="#d8c8ef">Frente</text>
+                <text x="640" y="465" text-anchor="middle" class="etiqueta-vista" font-family="Arial, sans-serif" font-size="18" fill="#d8c8ef">Espalda</text>
+            </svg>
+            <p class="aviso">La vista previa es aproximada: el color de la tela y de la tinta puede variar un poco.</p>
+        </section>
+
+        <!-- ============ CONTROLES ============ -->
+        <form class="controles" id="form-personalizador" novalidate>
+            <h1>Personaliza tu camiseta</h1>
+            <p class="intro">Escoge los colores, sube tu imagen y cuéntanos cómo la quieres. Cada cambio se ve al instante en la camiseta.</p>
+
+            <fieldset>
+                <legend>Color de la camiseta</legend>
+                <div class="muestras" id="colores-tela">
+                    <label><input type="radio" name="tela" value="#5b1a9e" data-nombre="Morado A.W.M.H.V" checked><span style="background:#5b1a9e"></span><em>Morado</em></label>
+                    <label><input type="radio" name="tela" value="#1b1b1f" data-nombre="Negro"><span style="background:#1b1b1f"></span><em>Negro</em></label>
+                    <label><input type="radio" name="tela" value="#f4f4f4" data-nombre="Blanco"><span style="background:#f4f4f4"></span><em>Blanco</em></label>
+                    <label><input type="radio" name="tela" value="#c8102e" data-nombre="Rojo"><span style="background:#c8102e"></span><em>Rojo</em></label>
+                    <label><input type="radio" name="tela" value="#1d4ed8" data-nombre="Azul"><span style="background:#1d4ed8"></span><em>Azul</em></label>
+                    <label><input type="radio" name="tela" value="#15803d" data-nombre="Verde"><span style="background:#15803d"></span><em>Verde</em></label>
+                    <label class="otro"><input type="color" id="tela-otro" value="#ff7a00" aria-label="Otro color de camiseta"><em>Otro</em></label>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Color del cuello, las mangas, el nombre y el número</legend>
+                <div class="muestras" id="colores-detalle">
+                    <label><input type="radio" name="detalle" value="#f6c312" data-nombre="Dorado" checked><span style="background:#f6c312"></span><em>Dorado</em></label>
+                    <label><input type="radio" name="detalle" value="#ffffff" data-nombre="Blanco"><span style="background:#ffffff"></span><em>Blanco</em></label>
+                    <label><input type="radio" name="detalle" value="#111111" data-nombre="Negro"><span style="background:#111111"></span><em>Negro</em></label>
+                    <label><input type="radio" name="detalle" value="#c8102e" data-nombre="Rojo"><span style="background:#c8102e"></span><em>Rojo</em></label>
+                    <label class="otro"><input type="color" id="detalle-otro" value="#00c2ff" aria-label="Otro color de detalles"><em>Otro</em></label>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Tu imagen</legend>
+                <label for="archivo" class="campo">Escoge una imagen (PNG o JPG, máximo 5 MB)</label>
+                <input type="file" id="archivo" accept="image/png, image/jpeg, image/webp">
+                <p class="error" id="error-imagen" role="alert"></p>
+                <p class="ayuda">Si tu imagen es un PNG sin fondo, se verá mejor sobre la camiseta.</p>
+
+                <div class="ajustes" id="ajustes-imagen" hidden>
+                    <div class="lugar" role="radiogroup" aria-label="¿Dónde va la imagen?">
+                        <label><input type="radio" name="lugar" value="frente" checked> Frente</label>
+                        <label><input type="radio" name="lugar" value="espalda"> Espalda</label>
+                    </div>
+                    <label for="tamano" class="campo">Tamaño</label>
+                    <input type="range" id="tamano" min="15" max="100" value="55">
+                    <label for="vertical" class="campo">Más arriba o más abajo</label>
+                    <input type="range" id="vertical" min="-60" max="160" value="0">
+                    <label for="horizontal" class="campo">Más a la izquierda o a la derecha</label>
+                    <input type="range" id="horizontal" min="-70" max="70" value="0">
+                    <label class="casilla"><input type="checkbox" id="mezclar"> Mi imagen tiene fondo blanco: quitarlo (se ve mejor en camisetas claras)</label>
+                    <button type="button" class="boton-quitar" id="quitar-imagen">Quitar imagen</button>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Nombre y número en la espalda</legend>
+                <div class="fila">
+                    <div>
+                        <label for="dorsal-nombre" class="campo">Nombre (solo letras)</label>
+                        <input type="text" id="dorsal-nombre" maxlength="12" autocomplete="off" placeholder="Ej: MBAPPÉ">
+                    </div>
+                    <div class="corto">
+                        <label for="dorsal-numero" class="campo">Número</label>
+                        <input type="text" id="dorsal-numero" inputmode="numeric" maxlength="2" placeholder="10">
+                    </div>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Describe tu camiseta</legend>
+                <label for="descripcion" class="campo">¿Qué quieres que tengamos en cuenta? (tipo de tela, tamaño exacto del estampado, cambios a la imagen…)</label>
+                <textarea id="descripcion" rows="4" required></textarea>
+                <p class="error" id="error-descripcion" role="alert"></p>
+            </fieldset>
+
+            <fieldset>
+                <legend>Tus datos</legend>
+                <label for="cliente" class="campo">Tu nombre</label>
+                <input type="text" id="cliente" autocomplete="name" required>
+                <p class="error" id="error-cliente" role="alert"></p>
+                <div class="fila">
+                    <div>
+                        <label for="corte" class="campo">Corte</label>
+                        <select id="corte">
+                            <option>Hombre</option>
+                            <option>Mujer</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="talla" class="campo">Talla</label>
+                        <select id="talla">
+                            <option>S</option>
+                            <option selected>M</option>
+                            <option>L</option>
+                            <option>XL</option>
+                        </select>
+                    </div>
+                </div>
+            </fieldset>
+
+            <div class="acciones">
+                <button type="submit" class="boton-enviar">Enviar pedido por WhatsApp</button>
+                <button type="button" class="boton-descargar" id="descargar">Descargar vista previa</button>
+            </div>
+            <p class="ayuda">WhatsApp solo deja enviar texto desde una página. Descarga la vista previa y adjúntala en el chat junto con tu imagen.</p>
+        </form>
+    </main>
+
+    <script src="personalizador.js"></script>
 </body>
 </html>

@@ -210,3 +210,44 @@ Su commit **Personaliza** (formulario en `Deportivo.html` a `Deportivo4.html`) s
       `login.html`, que ya no existe. Como no habrá registro, bórrenla.
 - [ ] Las 4 páginas `Deportivo*.html` son casi iguales (solo cambia el título). En Flask serán una sola
       plantilla que recibe el tipo de producto.
+
+---
+
+## Cuarta entrega: el personalizador de camisetas (`Deportivo.html`)
+
+`Deportivo.html` dejó de ser un formulario y ahora es un **personalizador**: el cliente ve su
+camiseta de frente y de espalda, y cada cambio aparece al instante.
+
+| Archivo | Qué tiene |
+|---|---|
+| `Deportivo.html` | La página. Las camisetas son un dibujo **SVG** dentro del HTML |
+| `personalizador.css` | Los estilos (mismos colores de la portada) |
+| `personalizador.js` | Todo lo que se mueve. Está dividido en 6 partes comentadas |
+
+**Lo que puede hacer el cliente:**
+- Escoger el color de la camiseta y el de los detalles (cuello, mangas, nombre y número), o un color propio con "Otro".
+- Subir una imagen PNG, JPG o WEBP de máximo 5 MB, ponerla en el frente o en la espalda, y cambiarle el tamaño y la posición.
+- Marcar "Mi imagen tiene fondo blanco" para que el blanco desaparezca. Se ve mejor en camisetas claras.
+- Escribir nombre y número para la espalda. El nombre solo acepta letras (con tildes y Ñ), se pasa a mayúsculas y la letra se encoge si es largo.
+- Describir lo que quiere, escoger corte y talla, y **enviar el pedido por WhatsApp** con todos los datos.
+- **Descargar la vista previa** como imagen PNG para adjuntarla en el chat.
+
+**Ideas clave para estudiar y explicar en la sustentación:**
+1. **Por qué SVG y no una foto:** el SVG está hecho de etiquetas (`<path>`, `<text>`, `<image>`), así
+   que JavaScript les cambia el `fill` (color), el texto y la imagen. A una foto no se le puede cambiar el color.
+2. **`<clipPath>`:** recorta la imagen del cliente con la forma de la camiseta, para que nunca se salga.
+3. **`FileReader`:** lee la imagen **en el navegador**, sin subirla a ningún servidor.
+4. **El objeto `diseno`:** guarda todo lo que escogió el cliente, y la función `dibujar()` lo pinta.
+   Cada control solo cambia `diseno` y llama a `dibujar()`.
+5. **`mix-blend-mode: multiply`:** mezcla la imagen con la tela. El blanco multiplicado por cualquier color da ese color, por eso el fondo blanco "desaparece".
+6. **Descargar:** el SVG se convierte en texto, se carga como imagen, se pinta en un `<canvas>`
+   y el canvas se guarda como PNG.
+7. **Validar dos veces:** el tipo y el peso de la imagen, y la limpieza del nombre, se revisan en
+   JavaScript. Cuando lo pasen a Flask hay que **repetir** esas reglas en el servidor.
+
+**Límites que deben conocer:**
+- WhatsApp no recibe archivos desde un enlace: el cliente adjunta la imagen y la vista previa a mano.
+- Una foto con fondo de colores se verá como un rectángulo. No quitamos fondos automáticamente.
+- La vista previa es aproximada, y la página lo dice.
+
+`Deportivo2.html`, `3` y `4` (pantaloneta, guayos y guantes) siguen con el formulario anterior.

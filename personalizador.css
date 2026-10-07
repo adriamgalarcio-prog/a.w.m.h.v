@@ -1,0 +1,288 @@
+/* =====================================================================
+   personalizador.css — Página para diseñar la camiseta (Deportivo.html)
+   Agregado por el docente. Usa los mismos colores de la portada (hero.css).
+   ===================================================================== */
+
+:root{
+    --noche:   #160428;
+    --violeta: #5b1a9e;
+    --oro:     #f6c312;
+    --lila:    #d8c8ef;
+    --tinta:   #24182f;   /* texto oscuro de los controles */
+    --gris:    #6b6275;   /* texto de ayuda */
+    --borde:   #ddd3ea;
+}
+
+body{ background: #f6f2fb; }
+
+/* Dos columnas: la camiseta a la izquierda y los controles a la derecha */
+.personalizador{
+    display: grid;
+    grid-template-columns: 1.25fr 1fr;
+    align-items: start;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+/* ---------- Vista previa ---------- */
+
+.escenario{
+    position: sticky;              /* la camiseta se queda a la vista mientras bajan por los controles */
+    top: 80px;                     /* justo debajo del menú fijo */
+    margin: 0;
+    padding: 40px 24px 24px;
+    min-height: calc(100vh - 80px);
+    background: radial-gradient(circle at 50% 45%, #3a1468 0%, var(--noche) 70%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#camisetas{
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* Los colores van como atributos dentro del SVG (fill, stroke), no aquí:
+   así la vista previa descargada sale igual a la de la pantalla. */
+.tela{ transition: fill 0.25s; }
+.sombra{ pointer-events: none; }
+
+.detalle{ transition: stroke 0.25s; }
+
+.dorsal{ transition: fill 0.25s; }
+
+
+.aviso{
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    color: var(--lila);
+    text-align: center;
+    margin: 18px auto 0;
+    max-width: 36em;
+}
+
+/* ---------- Controles ---------- */
+
+.controles{
+    margin: 0;
+    padding: 40px 36px 60px;
+    font-family: Arial, sans-serif;
+    color: var(--tinta);
+    background: white;
+    min-height: calc(100vh - 80px);
+}
+
+.controles h1{
+    font-family: 'Big Shoulders Display', Impact, 'Arial Narrow', sans-serif;
+    font-weight: 800;
+    font-size: 46px;
+    line-height: 1;
+    text-align: left;
+    margin: 0 0 12px;
+    color: var(--noche);
+}
+
+.intro{
+    font-size: 16px;
+    line-height: 1.5;
+    color: var(--gris);
+    margin: 0 0 28px;
+    max-width: 32em;
+}
+
+fieldset{
+    border: 0;
+    border-top: 1px solid var(--borde);
+    padding: 20px 0 22px;
+    margin: 0;
+}
+
+legend{
+    font-weight: 700;
+    font-size: 17px;
+    padding: 0 0 12px;
+    margin: 0;
+    color: var(--noche);
+}
+
+.campo{
+    display: block;
+    font-size: 14px;
+    color: var(--gris);
+    margin: 14px 0 6px;
+    line-height: 1.4;
+}
+
+.controles input[type="text"],
+.controles select,
+.controles textarea{
+    width: 100%;
+    font: inherit;
+    font-size: 16px;               /* 16px evita que el iPhone haga zoom al escribir */
+    color: var(--tinta);
+    border: 1.5px solid var(--borde);
+    border-radius: 10px;
+    padding: 11px 12px;
+    background: white;
+    margin: 0;
+}
+
+.controles textarea{ resize: vertical; }
+
+.controles input:focus-visible,
+.controles select:focus-visible,
+.controles textarea:focus-visible,
+.controles button:focus-visible{
+    outline: 3px solid var(--violeta);
+    outline-offset: 2px;
+}
+
+.fila{ display: flex; gap: 14px; margin: 0; }
+.fila > div{ flex: 1; margin: 0; }
+.fila > .corto{ flex: 0 0 90px; }
+
+/* Muestras de color: cada una es un radio button escondido + un círculo */
+.muestras{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin: 0;
+}
+
+.muestras label{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    cursor: pointer;
+    margin: 0;
+}
+
+.muestras input[type="radio"]{
+    position: absolute;
+    opacity: 0;                    /* invisible, pero sigue funcionando con el teclado */
+    width: 1px;
+    height: 1px;
+}
+
+.muestras span,
+.muestras input[type="color"]{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid var(--borde);
+    display: block;
+    margin: 0;
+}
+
+.muestras input[type="color"]{ padding: 0; cursor: pointer; background: none; }
+
+.muestras input:checked + span{
+    box-shadow: 0 0 0 3px white, 0 0 0 5px var(--violeta);
+}
+
+.muestras input:focus-visible + span{
+    outline: 3px solid var(--violeta);
+    outline-offset: 4px;
+}
+
+.muestras label.activo input[type="color"]{
+    box-shadow: 0 0 0 3px white, 0 0 0 5px var(--violeta);
+}
+
+.muestras em{
+    font-style: normal;
+    font-size: 12px;
+    color: var(--gris);
+}
+
+input[type="file"]{ font-size: 15px; margin: 0; max-width: 100%; }
+
+input[type="range"]{
+    width: 100%;
+    accent-color: var(--violeta);
+    margin: 0;
+}
+
+.lugar{
+    display: flex;
+    gap: 22px;
+    margin: 16px 0 4px;
+}
+
+.lugar label, .casilla{
+    font-size: 15px;
+    cursor: pointer;
+    margin: 0;
+}
+
+.casilla{ display: flex; gap: 8px; align-items: flex-start; margin-top: 16px; line-height: 1.4; }
+.lugar input, .casilla input{ accent-color: var(--violeta); margin: 2px 0 0; }
+
+.ayuda{
+    font-size: 13px;
+    line-height: 1.45;
+    color: var(--gris);
+    margin: 8px 0 0;
+}
+
+.error{
+    font-size: 14px;
+    color: #b42318;
+    margin: 6px 0 0;
+}
+.error:empty{ display: none; }
+
+.boton-quitar{
+    margin: 18px 0 0;
+    background: none;
+    border: 1.5px solid var(--borde);
+    border-radius: 999px;
+    padding: 8px 16px;
+    font: inherit;
+    font-size: 14px;
+    color: var(--tinta);
+    cursor: pointer;
+}
+
+.acciones{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin: 26px 0 0;
+}
+
+.boton-enviar,
+.boton-descargar{
+    font: inherit;
+    font-weight: 700;
+    font-size: 16px;
+    border-radius: 999px;
+    padding: 14px 24px;
+    cursor: pointer;
+    margin: 0;
+    border: 2px solid var(--violeta);
+}
+
+.boton-enviar{ background: var(--violeta); color: white; }
+.boton-descargar{ background: white; color: var(--violeta); }
+.boton-enviar:hover{ background: #4a1385; }
+.boton-descargar:hover{ background: #f3ecfb; }
+
+/* ---------- Celular ---------- */
+@media (max-width: 860px){
+    .personalizador{ grid-template-columns: 1fr; }
+    .escenario{
+        position: relative;        /* en el celular la camiseta va arriba y no se queda fija */
+        top: 0;
+        min-height: 0;
+        padding: 24px 12px 16px;
+    }
+    .controles{ padding: 28px 20px 48px; min-height: 0; }
+    .controles h1{ font-size: 38px; }
+}
+
+@media (prefers-reduced-motion: reduce){
+    .tela, .detalle, .dorsal{ transition: none; }
