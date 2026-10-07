@@ -263,7 +263,7 @@ previa. La tienda los ve en un panel protegido con usuario y contraseña.
 
 | Archivo | Qué hace |
 |---|---|
-| `basedatos.sql` | Crea la base `awmhv_sport` y la tabla `pedidos`. Se ejecuta una sola vez en phpMyAdmin |
+| `base_de_datos/awmhv_sport.sql` | Crea la base `awmhv_sport` y la tabla `pedidos`. Se importa una sola vez en phpMyAdmin |
 | `config.py` | Datos de conexión a MySQL y usuario/clave del panel |
 | `app.py` | El servidor: muestra las páginas, recibe los pedidos y muestra el panel |
 | `templates/pedidos.html` | El panel de pedidos (plantilla de Flask) |
@@ -274,8 +274,9 @@ previa. La tienda los ve en un panel protegido con usuario y contraseña.
 ### Cómo encenderlo (cada vez)
 
 1. En XAMPP, enciendan **MySQL**. Apache no hace falta para esto.
-2. **Solo la primera vez:** abran `http://localhost/phpmyadmin`, pestaña **SQL**, peguen
-   `basedatos.sql` y presionen **Continuar**.
+2. **Solo la primera vez, importar la base de datos:** abran `http://localhost/phpmyadmin`,
+   pestaña **Importar** → **Seleccionar archivo** → `base_de_datos/awmhv_sport.sql` → botón
+   **Importar**. A la izquierda aparece `awmhv_sport` con la tabla `pedidos`.
 3. **Solo la primera vez**, en la Terminal, dentro de la carpeta del proyecto:
    ```bash
    python3 -m venv venv

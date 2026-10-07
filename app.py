@@ -206,7 +206,7 @@ def sin_base_de_datos(error):
     print('Error de MySQL:', error)
     return ('<h1>No hay conexión con la base de datos</h1>'
             '<p>Revisen que MySQL esté encendido en el panel de XAMPP y que hayan '
-            'ejecutado <code>basedatos.sql</code> en phpMyAdmin. Luego recarguen la página.</p>'), 500
+            'importado <code>base_de_datos/awmhv_sport.sql</code> en phpMyAdmin. Luego recarguen la página.</p>'), 500
 
 
 # ---------------------------------------------------------------------

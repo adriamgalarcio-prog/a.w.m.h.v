@@ -1,7 +1,10 @@
 -- =====================================================================
--- basedatos.sql — Base de datos de A.W.M.H.V Sport
--- Cómo usarlo: abran phpMyAdmin (http://localhost/phpmyadmin),
--- pestaña "SQL", peguen todo este archivo y presionen "Continuar".
+-- awmhv_sport.sql — Base de datos de A.W.M.H.V Sport
+-- Cómo importarla (una sola vez):
+--   1. Enciendan MySQL en XAMPP y abran http://localhost/phpmyadmin
+--   2. Pestaña "Importar" → "Seleccionar archivo" → escojan este archivo
+--   3. Presionen "Importar" (abajo). Aparece la base awmhv_sport con la tabla pedidos.
+-- Se puede importar otra vez sin miedo: no borra los pedidos que ya existan.
 -- =====================================================================
 
 CREATE DATABASE IF NOT EXISTS awmhv_sport
