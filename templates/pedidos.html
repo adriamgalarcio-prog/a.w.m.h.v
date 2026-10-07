@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pedidos | A.W.M.H.V Sport</title>
+    <link rel="icon" type="image/png" href="/Img/Logo.png">
+    <link rel="stylesheet" href="/pedidos.css">
+</head>
+<body>
+    {# Esta página es una PLANTILLA de Flask (Jinja).
+       Lo que está entre llaves dobles y entre llave-porcentaje lo llena app.py
+       con los datos de MySQL. Este comentario usa llave-numeral: no llega al navegador. #}
+    <header class="barra">
+        <h1>Pedidos</h1>
+        <p>{{ pedidos|length }} en total · <a href="/Index.html">Ir a la tienda</a></p>
+    </header>
+
+    <main>
+        {% if not pedidos %}
+            <p class="vacio">Todavía no hay pedidos. Haz uno de prueba desde
+                <a href="/Deportivo.html">el personalizador</a>.</p>
+        {% endif %}
+
+        {% for p in pedidos %}
+        <article class="pedido estado-{{ p.estado }}" id="pedido-{{ p.id }}">
+            <a href="{{ url_for('archivo_pedido', nombre=p.vista_previa) }}" target="_blank" class="miniatura">
+                <img src="{{ url_for('archivo_pedido', nombre=p.vista_previa) }}"
+                     alt="Vista previa del pedido {{ p.id }}">
+            </a>
+
+            <div class="datos">
+                <h2>Pedido #{{ p.id }} <span class="etiqueta">{{ p.estado }}</span></h2>
+                <p class="fecha">{{ p.fecha.strftime('%d/%m/%Y %I:%M %p') }}</p>
+
+                <dl>
+                    <dt>Cliente</dt>   <dd>{{ p.cliente }} ·
+                        <a href="https://wa.me/{{ p.celular|replace('+', '') }}" target="_blank">{{ p.celular }}</a></dd>
+                    <dt>Camiseta</dt>  <dd>{{ p.corte }}, talla {{ p.talla }}</dd>
+                    <dt>Colores</dt>   <dd>{{ p.color_tela }} · detalles {{ p.color_detalle }}</dd>
+                    <dt>Espalda</dt>   <dd>{{ p.nombre_dorsal or '(sin nombre)' }} · {{ p.numero_dorsal or '(sin número)' }}</dd>
+                    <dt>Imagen</dt>
+                    <dd>
+                        {% if p.imagen %}
+                            <a href="{{ url_for('archivo_pedido', nombre=p.imagen) }}" target="_blank">Ver imagen original</a>
+                            (en {{ 'el frente' if p.lugar_imagen == 'frente' else 'la espalda' }})
+                        {% else %}
+                            Sin imagen
+                        {% endif %}
+                    </dd>
+                    <dt>Descripción</dt> <dd class="descripcion">{{ p.descripcion }}</dd>
+                </dl>
+
+                <form method="post" action="{{ url_for('cambiar_estado', numero=p.id) }}" class="cambiar">
+                    <label for="estado-{{ p.id }}">Estado</label>
+                    <select name="estado" id="estado-{{ p.id }}">
+                        {% for e in estados %}
+                            <option value="{{ e }}" {{ 'selected' if e == p.estado }}>{{ e }}</option>
+                        {% endfor %}
+                    </select>
+                    <button type="submit">Guardar estado</button>
+                </form>
+            </div>
+        </article>
+        {% endfor %}
+    </main>
+</body>
+</html>

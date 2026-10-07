@@ -1,0 +1,10 @@
+# Entorno virtual de Python y archivos que Python genera solo
+venv/
+__pycache__/
+
+# Imágenes de los pedidos de los clientes: no se suben a GitHub
+subidas/*
+!subidas/.gitkeep
+
+# Archivos del Mac
+.DS_Store

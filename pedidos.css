@@ -1,0 +1,115 @@
+/* pedidos.css — Panel de pedidos (templates/pedidos.html). Agregado por el docente. */
+
+:root{
+    --noche:   #160428;
+    --violeta: #5b1a9e;
+    --oro:     #f6c312;
+    --gris:    #6b6275;
+    --borde:   #ddd3ea;
+}
+
+*{ box-sizing: border-box; }
+
+body{
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f6f2fb;
+    color: #24182f;
+}
+
+.barra{
+    background: var(--noche);
+    color: white;
+    padding: 20px 5%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 8px 20px;
+}
+.barra h1{ margin: 0; font-size: 30px; }
+.barra p{ margin: 0; color: #d8c8ef; }
+.barra a{ color: var(--oro); }
+
+main{
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 24px 16px 60px;
+}
+
+.vacio{ font-size: 18px; text-align: center; padding: 60px 0; }
+
+.pedido{
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 24px;
+    background: white;
+    border: 1px solid var(--borde);
+    border-left: 6px solid var(--violeta);
+    border-radius: 10px;
+    padding: 18px;
+    margin-bottom: 18px;
+}
+
+/* El color del borde izquierdo dice en qué va el pedido */
+.estado-nuevo     { border-left-color: var(--oro); }
+.estado-estampando{ border-left-color: var(--violeta); }
+.estado-listo     { border-left-color: #1d4ed8; }
+.estado-entregado { border-left-color: #15803d; }
+.estado-cancelado { border-left-color: #9ca3af; opacity: 0.75; }
+
+.miniatura img{
+    width: 100%;
+    border-radius: 8px;
+    display: block;
+}
+
+.datos h2{ margin: 0; font-size: 22px; }
+
+.etiqueta{
+    font-size: 13px;
+    font-weight: normal;
+    background: #f3ecfb;
+    color: var(--violeta);
+    border-radius: 999px;
+    padding: 3px 10px;
+    vertical-align: middle;
+}
+
+.fecha{ color: var(--gris); margin: 4px 0 12px; font-size: 14px; }
+
+dl{
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 6px 12px;
+    margin: 0 0 16px;
+    font-size: 15px;
+}
+dt{ color: var(--gris); }
+dd{ margin: 0; }
+.descripcion{ white-space: pre-line; }   /* respeta los saltos de línea que escribió el cliente */
+
+.cambiar{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+}
+.cambiar select, .cambiar button{
+    font: inherit;
+    padding: 7px 12px;
+    border-radius: 8px;
+    border: 1.5px solid var(--borde);
+}
+.cambiar button{
+    background: var(--violeta);
+    border-color: var(--violeta);
+    color: white;
+    cursor: pointer;
+}
+
+@media (max-width: 700px){
+    .pedido{ grid-template-columns: 1fr; }
+    dl{ grid-template-columns: 1fr; }
+    dt{ margin-top: 6px; }
+}

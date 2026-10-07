@@ -162,6 +162,9 @@
                 <label for="cliente" class="campo">Tu nombre</label>
                 <input type="text" id="cliente" autocomplete="name" required>
                 <p class="error" id="error-cliente" role="alert"></p>
+                <label for="celular" class="campo">Tu celular (te escribimos por WhatsApp para confirmar)</label>
+                <input type="text" id="celular" inputmode="tel" autocomplete="tel" maxlength="16" placeholder="300 123 4567" required>
+                <p class="error" id="error-celular" role="alert"></p>
                 <div class="fila">
                     <div>
                         <label for="corte" class="campo">Corte</label>
@@ -183,10 +186,13 @@
             </fieldset>
 
             <div class="acciones">
-                <button type="submit" class="boton-enviar">Enviar pedido por WhatsApp</button>
+                <button type="submit" class="boton-enviar" id="enviar">Enviar pedido</button>
                 <button type="button" class="boton-descargar" id="descargar">Descargar vista previa</button>
             </div>
-            <p class="ayuda">WhatsApp solo deja enviar texto desde una página. Descarga la vista previa y adjúntala en el chat junto con tu imagen.</p>
+            <p class="ayuda">Tu pedido queda guardado con tu imagen y la vista previa. Te escribimos por WhatsApp para confirmar el precio y la entrega.</p>
+
+            <!-- Aquí aparece la respuesta del servidor: el número del pedido o lo que falta -->
+            <div class="resultado" id="resultado" role="status" hidden></div>
         </form>
     </main>
 

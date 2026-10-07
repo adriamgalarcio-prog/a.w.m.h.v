@@ -251,3 +251,71 @@ camiseta de frente y de espalda, y cada cambio aparece al instante.
 - La vista previa es aproximada, y la página lo dice.
 
 `Deportivo2.html`, `3` y `4` (pantaloneta, guayos y guantes) siguen con el formulario anterior.
+
+---
+
+## Quinta entrega: base de datos (Flask + MySQL de XAMPP)
+
+Ahora los pedidos del personalizador **se guardan en MySQL**, con la imagen del cliente y la vista
+previa. La tienda los ve en un panel protegido con usuario y contraseña.
+
+### Archivos nuevos
+
+| Archivo | Qué hace |
+|---|---|
+| `basedatos.sql` | Crea la base `awmhv` y la tabla `pedidos`. Se ejecuta una sola vez en phpMyAdmin |
+| `config.py` | Datos de conexión a MySQL y usuario/clave del panel |
+| `app.py` | El servidor: muestra las páginas, recibe los pedidos y muestra el panel |
+| `templates/pedidos.html` | El panel de pedidos (plantilla de Flask) |
+| `pedidos.css` | Estilos del panel |
+| `requirements.txt` | Lo que hay que instalar: `flask` y `pymysql` |
+| `subidas/` | Aquí quedan las imágenes de los pedidos (no se suben a GitHub) |
+
+### Cómo encenderlo (cada vez)
+
+1. En XAMPP, enciendan **MySQL**. Apache no hace falta para esto.
+2. **Solo la primera vez:** abran `http://localhost/phpmyadmin`, pestaña **SQL**, peguen
+   `basedatos.sql` y presionen **Continuar**.
+3. **Solo la primera vez**, en la Terminal, dentro de la carpeta del proyecto:
+   ```bash
+   python3 -m venv venv
+   source venv/bin/activate
+   pip install -r requirements.txt
+   ```
+4. Cada vez que vayan a trabajar:
+   ```bash
+   source venv/bin/activate
+   python3 app.py
+   ```
+5. Abran **http://127.0.0.1:5000**. El panel está en **http://127.0.0.1:5000/pedidos**
+   (usuario y clave en `config.py`).
+
+> Si abren `Deportivo.html` desde XAMPP (`localhost/...`), el pedido **no se puede enviar**:
+> la página lo avisa. Para guardar pedidos hay que abrirla desde Flask (`127.0.0.1:5000`).
+
+### Ideas clave para la sustentación
+
+1. **Una sola tabla.** Cada fila es un pedido. En la tabla solo va el **nombre** del archivo de la
+   imagen; la imagen misma se guarda en `subidas/` con un nombre al azar (`uuid`).
+2. **`fetch` + `FormData`.** El navegador envía textos y archivos a la ruta `/pedido` sin recargar
+   la página, y Flask responde en **JSON**: `{"ok": true, "numero": 7}` o la lista de errores.
+3. **El servidor revisa todo otra vez:** campos obligatorios, talla y corte de una lista, colores
+   `#RRGGBB`, nombre solo letras, número de 1 o 2 cifras, celular solo números.
+4. **Bytes mágicos.** Para saber si un archivo es una imagen no se mira el nombre (`foto.png` puede ser
+   cualquier cosa), sino sus primeros bytes: un PNG empieza por `\x89PNG` y un JPG por `\xff\xd8\xff`.
+5. **Inyección SQL.** Los valores van con `%s` y los pone PyMySQL, nunca pegados en el texto del
+   SQL. Probamos con el nombre `x'); DROP TABLE pedidos; --`: se guardó como texto y la tabla siguió intacta.
+6. **El panel tiene clave** (`requiere_clave` en `app.py`), y las imágenes de los clientes solo se
+   ven desde el panel. El servidor tampoco entrega `app.py`, `config.py` ni `.git`.
+7. **Si MySQL está apagado**, el cliente ve "No se pudo guardar el pedido" y las imágenes que
+   alcanzaron a guardarse se borran. El detalle del error sale en la Terminal.
+
+### Lo que se probó (contra MySQL real)
+
+Dos pedidos completos desde el navegador, con y sin imagen, con tildes (`Pérez`, `MBAPPÉ`). Además:
+- Un nombre con `<script>`: el panel lo muestra como texto y no se ejecuta.
+- El cambio de estado desde el panel.
+- El panel sin clave o con clave equivocada.
+- 13 envíos falsos directos al servidor, todos rechazados: nombre con números, número de 3 cifras,
+  talla inventada, imagen falsa, imagen de 6 MB, envío de 17 MB, entre otros.
+- El servidor con MySQL apagado.

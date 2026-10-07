@@ -271,6 +271,23 @@ input[type="range"]{
 .boton-enviar:hover{ background: #4a1385; }
 .boton-descargar:hover{ background: #f3ecfb; }
 
+/* Respuesta del servidor después de enviar */
+.resultado{
+    margin: 22px 0 0;
+    padding: 16px 18px;
+    border-radius: 12px;
+    font-size: 16px;
+    line-height: 1.5;
+}
+.resultado.exito{ background: #ecfdf3; border: 1.5px solid #15803d; }
+.resultado.fallo{ background: #fef3f2; border: 1.5px solid #b42318; }
+.resultado h2{ margin: 0 0 6px; font-size: 20px; }
+.resultado p, .resultado ul{ margin: 0 0 8px; }
+.resultado ul{ padding-left: 20px; }
+.resultado a{ color: var(--violeta); font-weight: 700; }
+
+.boton-enviar:disabled{ opacity: 0.6; cursor: wait; }
+
 /* ---------- Celular ---------- */
 @media (max-width: 860px){
     .personalizador{ grid-template-columns: 1fr; }
