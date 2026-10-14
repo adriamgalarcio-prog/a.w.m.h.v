@@ -1,0 +1,118 @@
+* {
+    margin: 0 auto;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: serif;
+    list-style: none;
+}
+
+body{
+    width: 100%;
+    height: 100vh;
+    background: url(Img/Fondo.png) center/cover no-repeat;
+}
+
+h1{
+    font-size: 40px;
+    color: white;
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Historia{
+    font-size: 25px;
+    width: 600px;
+    height: 100px;
+    color: white;
+    margin-top: 200px;
+    margin-bottom: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Logo{
+    height: 50px;
+    width: 50px;
+    display: block;
+    border-radius: 58px;
+    margin-left: 40px;
+    margin-top: 15px;
+}
+
+.footer{
+    background-color: black;
+    padding: 80px 0;
+}
+
+.footer-row{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.footerLinks{
+    width: 25%;
+    padding: 0 15;
+    border-bottom: none;
+}
+
+.footerLinks h4{
+    color: white;
+    font-size: 20px;
+    margin-bottom: 10px;
+    font-weight: 500;
+    margin-left: 50px;
+    
+}
+
+.footerLinks a{
+    color: white;
+}
+
+.footerLinks p{
+    color: white;
+}
+
+.footerLinks ul li a{
+    font-size: 15px;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 10px;
+    transition: all, 50ms ease;
+    margin-left: 50px;
+}
+
+.footerLinks ul li a:hover{
+    color: rgb(98, 6, 119);
+    padding-left: 6px;
+}
+
+.footerLinks p{
+    font-size: 15px;
+    text-decoration: none;
+    display: block;
+    margin-bottom: 10px;
+    transition: all, 50ms ease;
+    margin-left: 50px;
+    cursor: none;
+}
+
+.footerLinks p:hover{
+    color: rgb(98, 6, 119);
+    padding-left: 6px;
+}
+
+.Redes img{
+    height: 30px;
+    width: 30px;
+    border-radius: 50px;
+}
+
+.footerLinks h3{
+    color: white;
+    font-size: 20px;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
